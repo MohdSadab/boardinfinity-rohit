@@ -15,3 +15,9 @@ git checkout -b branch-name  // used to create a branch and move head to that br
 git pull origin first-branch   // pull the first branch to master
 
 git merge branch-name   // merge the branch-name(provided by you) to current active branch
+
+git stash list // list the stash file
+git stash apply stash@{0} // apply the stash to local changes
+
+dhhddhdhdh 
+continue your work
