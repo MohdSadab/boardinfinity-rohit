@@ -9,3 +9,5 @@ git restore --staged file_name_with_ext or .  // move file from staging area to 
 git remote add origin repo url // adding remote origin 
 
 git push --set-upstream origin master  // setting up the stream from local to server
+
+git branch // list all the branches present local system
