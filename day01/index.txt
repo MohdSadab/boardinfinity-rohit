@@ -13,3 +13,5 @@ git push --set-upstream origin master  // setting up the stream from local to se
 git branch // list all the branches present local system
 git checkout -b branch-name  // used to create a branch and move head to that branch 
 git pull origin first-branch   // pull the first branch to master
+
+i have fixed the bugs 
