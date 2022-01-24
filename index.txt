@@ -4,3 +4,4 @@ git status  // command tells about the status of the git directory which files c
 git diff // shows us the local changes
 git diff --staged // shows us the changes in staging area
 git commit -m "your message"  // command used to commit the changes from staging area to commiting area
+i have to go in staging area
