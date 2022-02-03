@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
+</head>
+<body>
+
+<!-- inline css -->
+<!-- internal style css -->
+<!-- external file css -->
+
+<!-- <h1 style="color:red;" id="main-heading"> In line css</h1>
+<h2 style="color:red;" class="heading-2"> In line css</h2> -->
+
+<h1 class="main-heading">
+    I am main heading
+</h1>
+
+<h1>I am black</h1>
+<h2 id="sub-heading">
+    I am sub heading using id and i have unique id on whole page it is not repeated
+</h2>
+
+<!-- <i class="fas fa-cloud"></i>
+<i class="fas fa-heart"></i>
+<i class="fas fa-car"></i>
+<i class="fas fa-file"></i>
+<i class="fas fa-bars"></i> -->
+
+<div class="container">
+    <div class="section">
+        I am parent section 
+        <div class="section">
+            I am child of parent section
+        </div>
+    </div>
+    <div class="section-2">
+        I am section 2
+    </div>
+    <div class="section">
+        I am section 3
+    </div>
+    <section>
+        <div>I am not a child but descendent</div>
+    </section>
+
+    <p>I am not a section my parent is container</p>
+</div>
+
+<h1>container 2 </h1>
+<div class="container-2">
+    <div class="section">
+        I am parent section 
+        <div class="section">
+            I am child of parent section
+        </div>
+    </div>
+    <div class="section-2">
+        I am section 2
+    </div>
+    <div class="section">
+        I am section 3
+    </div>
+    <section>
+        <div>I am not a child</div>
+    </section>
+    <p>I am not a section my parent is container</p>
+</div>
+
+
+<h1>container 3 </h1>
+<div class="container-3">
+    <div class="section-2">
+        I am section 2
+    </div>
+    <div class="section-3">
+        I am section 3
+    </div>
+    <div class="section-1">
+        I am parent section 
+        <div class="section">
+            I am child of parent section
+        </div>
+    </div>
+    <div class="section-2">
+        I am section 2
+    </div>
+    <div class="section-3">
+        I am section 3
+    </div>
+    <div class="section-2">
+        I am section 2
+    </div>
+    <div class="section-3">
+        I am section 3
+    </div>
+    <section>
+        <div>I am not a child</div>
+    </section>
+    <p class="any-name">I am not a section my parent is container</p>
+</div>
+
+</body>
+</html>
+
+<!-- inline css -->
+<!-- downside you can not reuse the css, it can be use by multiple element  updating css is tough -->
+
+<!-- css selectors -->
+<!-- 1-> simple selector  2- combinators-->
+<!-- 
+    simple selector
+        - using tag  (h1,div,img,span etc)
+        - using class (.heading-2)
+        - using id (#id_name,#main-heading)
+
+    if same style apply to multiple selector then priority will be (inline>id>class>tag>global selector)
+    if both selector are same then last css will apply
+
+    combinators
+        - descendant selector (space)
+        - child selector (>)
+        - adjacent sibling selector (+)
+        - general sibling selector (~)
+
+        - pseudo selector
+
+    
+-->
+
+<!-- select all the even row of table and apply background color red -->
+<!-- select all the odd row of table and apply background color blue -->
