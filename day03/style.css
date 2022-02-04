@@ -1,4 +1,4 @@
- /* 
+/* 
         syntax
         selector{
             key(property):value;
@@ -6,73 +6,84 @@
         }
         
         */
-        *{
-            /* applied css globally with in file*/
-            margin: 0px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+* {
+	/* applied css globally with in file*/
+	margin: 0px;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+		sans-serif;
+}
 
-        }
+h1 {
+	color: black;
+}
+.main-heading {
+	color: white;
+	background-color: black;
+	font-size: large;
+	height: 2%;
+	width: 80%;
+	text-transform: capitalize;
+	text-align: right;
+	max-width: 1000px;
+	min-height: 50px;
+}
 
-        h1{
-            color:black;
-        }
-        .main-heading{
-            color: white;
-            background-color: black;
-            font-size: large;
-            height: 2%;
-            width: 80%;
-            text-transform: capitalize;
-            text-align: right;
-            max-width: 1000px;
-            min-height: 50px;
-        }
+#sub-heading {
+	color: pink;
+	background-color: green;
+	font-size: medium;
+}
 
-        #sub-heading{
-            color: pink;
-            background-color: green;
-            font-size: medium;
-        }
+h1 {
+	/* override above h1 tag */
+	color: red;
+}
 
-        h1{
-            /* override above h1 tag */
-            color:red;
-        }
+.container {
+	border: 1px solid black;
+}
+/* descendent selector */
+/* select all the child element having div tag */
+.container div {
+	background-color: indigo;
+	color: red;
+}
+/* child selector */
 
-       
-        .container{
-            border: 1px solid black;
-        }
-         /* descendent selector */
-        /* select all the child element having div tag */
-        .container div{
-            background-color: indigo;
-            color: red;
+.container-2 > div {
+	background-color: green;
+	color: white;
+}
 
-        }
-        /* child selector */
+.section + div {
+	font-size: 20px;
+}
 
-        .container-2 > div{
-            background-color: green;
-            color: white;
-        }
+.section-1 ~ div {
+	font-weight: bold;
+	font-size: 25px;
+}
 
-        .section + div{
-            font-size: 20px;
-        }
-        
-        .section-1 ~ div{
-            font-weight: bold;
-            font-size: 25px;
-        }
+.container-2 div:last-child {
+	color: brown;
+}
 
-        .container-2 div:last-child{
-            color: brown;
+.any-name:hover {
+	cursor: pointer;
+	background-color: black;
+	color: white;
+}
 
-        }
+table {
+	border: 1px solid black;
+}
 
-        .any-name:hover{
-            cursor: pointer;
-            background-color: black;
-            color: white;
-        }
+tr:nth-child(2n) {
+	background-color: black;
+	color: white;
+}
+
+tr:nth-child(2n+1) {
+	background-color: red;
+	color: white;
+}
