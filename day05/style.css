@@ -6,14 +6,102 @@
 	box-sizing: border-box;
 }
 
-.wrapper {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-auto-rows: minmax(100px, auto);
+.parent {
+	display: flex;
+	/* flex-flow: row wrap-reverse; */
+	/* flex-wrap: wrap; */
+	/* flex-direction: column-reverse; */
+	justify-content: center;
+	align-items: flex-start;
+	height: 100vh;
 }
 
-.wrapper > div{
+.box{
 	border:1px solid black;
 	background-color: coral;
+	flex-grow: 1;
+	flex-basis: 200px;
+	/* min-width: 200px; */
 }
+
+.item-5{
+	order:-1;
+	margin:0px 2px;
+	/* align-self: flex-start; */
+	/* flex-grow:2; */
+	/* flex-shrink:4; */
+}
+.item-1{
+	order:2;
+	/* flex-grow:3; */
+}
+
+/* 
+parent properties of flex;
+flex-direction : (row ,column, row-reverse, column-reverse) default row
+flex-wrap: (no-wrap,wrap,wrap-reverse)
+flex-flow (short hand notation) : flex-direction, flex-wrap;
+justify-content: (center, space-between, space-around flex-start,flex-end) etc along main-axis
+align-items : (flex-start,flex-end, stretch,center) along cross-axis
+*/
+
+/* 
+child(flex-item) properties of flex;
+order: (default is 0 least number comes first )
+flex-grow:n(take space n times as compaire t o others);
+flex-shrink: n (shrink  n times as compaire t o others);
+flex-basis: set default width of flex item
+flex: grow shrink flex-basis ()
+align-self: align item in cross axis
+*/
   
+
+.nav{
+	height: 50px;
+	background-color: rgb(19, 1, 19);
+	color: white;
+	display: flex;
+	align-items: center;
+}
+.nav-items{
+	margin:0px 10px ;
+}
+
+.ml-auto{
+	margin-left: auto;
+}
+
+.img-class> img{
+	width: 100%;
+	height: 400px;
+	object-fit: cover;
+}
+
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.card{
+	width:100%;
+	height: 100%;
+	max-height:400px ;
+	background-color: #f6f6f6;
+	display: flex;
+}
+
+.card> .card-img{
+	width: 100%;
+	min-width: 200px;
+	max-width: 400px;
+	max-height: 200px;
+	padding: 10px;
+}
+
+.card-body> .content{
+	padding: 20px 10px;
+}
+
+.m-5,.heading{
+	margin:10px;
+}
