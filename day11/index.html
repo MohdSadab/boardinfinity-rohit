@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <input type="text" id="userInput" /><br><br>
+    <button onclick="findElement(event)">Add</button>
+    <button onclick="updateElement(event)">Update</button> -->
+
+
+    <div id="root" onclick="console.log('root')">
+        root
+       <div class="child" onclick="stopBubbling(event)">
+           child
+           <div class="childofchild" onclick="childOfChild(event)">
+            childofchild
+           </div>
+       </div>
+    </div>
+    
+
+    <!-- get method is unsecure for posting data in server because data is visible in url -->
+    <!-- <form name="myForm" action="https://www.w3schools.com/action_page.php" onsubmit="return true" method="get">
+        Name: <input type="password" name="fname">
+        <input type="submit" value="Submit">
+      </form> -->
+    
+      <!-- in post data goes inside the body in https(encrypt the data) -->
+      <form name="myForm" action="https://www.w3schools.com/action_page.php" onsubmit="return validateForm(event)" method="post">
+        
+        <label for="email">Email</label><br>
+        <input type="text" name="email" id="email" /><br>
+
+        <label for="password">Password</label><br>
+        <input type="password" name="password" id="password" /><br><br>
+
+        <input type="submit" value="Submit">
+      </form>
+
+    
+    <script src="dom.js"></script>
+</body>
+</html>
