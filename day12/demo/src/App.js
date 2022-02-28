@@ -1,6 +1,12 @@
 import './App.css';
-import WaterState  from './components/Water';
+// import WaterState  from './components/Water';
 import React from 'react';
+// import Hooks from './components/Hooks';
+import Todo from './components/Todo';
+import Navbar from './components/Navbar';
+import { Route, Routes } from 'react-router-dom';
+import TodoDetails from './components/TodoDetails';
+import AddTodo from './components/AddTodo';
 
 class App extends React.Component{
 
@@ -9,26 +15,31 @@ class App extends React.Component{
     this.state={toggle:true}
   }
 
-  toggleHandler = ()=>{
+  // toggleHandler = ()=>{
 
-    // this.setSTate is asynchronous 
-    // this.setState((prevState,prevProps)=>{
-    //   return{toggle:!prevState.toggle}
-    // })
+  //   // this.setSTate is asynchronous 
+  //   // this.setState((prevState,prevProps)=>{
+  //   //   return{toggle:!prevState.toggle}
+  //   // })
 
-    // this does not work
-    this.state.toggle = !this.state.toggle;
-  }
+  //   // this does not work
+  //   this.state.toggle = !this.state.toggle;
+  // }
 
   render() {
     return (
       <div className="App">
-          <h1>Hellow World</h1>
-          <button onClick={this.toggleHandler}>Toggle</button>
-         { this.state.toggle ? <WaterState  title={"Hello"}/> : null}
-         {/* we can write the any valid single line javascript  */}
-         {/* {2+3 + " "}
-         {Math.random()} */}
+        <Navbar />
+         <Routes>
+           <Route path="">
+                <Route index element={<Todo />} />
+                <Route path=":todoId" element={<TodoDetails />} />
+            </Route>
+           <Route path="add" element={<AddTodo />}/>
+         </Routes>
+
+          
+
       </div>
     );
 }

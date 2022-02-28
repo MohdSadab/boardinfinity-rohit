@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 //  jsx javascript syntactic sugar (object contatins {type,props:{children}})
 
 // react uses virtual dom for reconcilation process
-
+// prior to version 16 we can't use state in a function component 
 class WaterState extends Component{
 
     constructor(props){
