@@ -98,6 +98,7 @@ function childOfChild(event){
 
 // onkeypress 
 // onkeydown onkeyup
+// form validation 
 
 function validateForm(event){
 

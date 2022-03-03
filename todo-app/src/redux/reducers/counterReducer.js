@@ -4,8 +4,9 @@
 
 import { DECREMENT_COUNTER, INCREMENT_COUNTER } from "../actions/actionTypes"
 
+const initState={count:0}
 //  pure function same input same output you can tell next state buy seeing input
-const counterReducer =(state,action)=>{
+const counterReducer =(state=initState,action)=>{
 
     switch(action.type){
 

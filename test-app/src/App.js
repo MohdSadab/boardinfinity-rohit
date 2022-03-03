@@ -3,6 +3,8 @@ import QuestionList from './components/QuestionList';
 import Navbar from './components/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Question from './components/Question';
+import { useState } from 'react';
+import History from './components/History';
 
 export const questions=[
 
@@ -59,11 +61,66 @@ export const questions=[
       }
     ]
 
+  },
+  {
+    question:"Javascript language is ?",
+    id:3,
+    answers:[
+      {
+        'id':1,
+        ans: 'Programming',
+        isCorrect: true
+      },
+      {
+        'id':2,
+        ans: 'Machine Language',
+        isCorrect: false
+      },
+      {
+        'id':3,
+        ans: 'HighLevel',
+        isCorrect: false
+      },
+      {
+        'id':4,
+        ans: 'Markup',
+        isCorrect: false
+      }
+    ]
+
+  },
+  {
+    question:"Express is  a framework of?",
+    id:4,
+    answers:[
+      {
+        'id':1,
+        ans: 'Nodejs',
+        isCorrect: true
+      },
+      {
+        'id':2,
+        ans: 'Python',
+        isCorrect: false
+      },
+      {
+        'id':3,
+        ans: 'PHP',
+        isCorrect: false
+      },
+      {
+        'id':4,
+        ans: 'Javascript',
+        isCorrect: false
+      }
+    ]
+
   }
 ]
 
 
 function App() {
+  const [history, setHistory] =useState([]);
   return (
     <div>
         <Navbar />
@@ -71,8 +128,9 @@ function App() {
          
           <Routes>
             <Route path="/" element={ <QuestionList />} />
+            <Route path="history" element={ <History history={history}/>} />
             <Route path="*" element={ <h1 className='mt-5'>Not Found</h1>} />
-            <Route path="question/:quesId" element={<Question />} />
+            <Route path="question/:quesId" element={<Question setHistory={setHistory}/>} />
           </Routes>
         </div>
     </div>

@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { questions } from '../App'
 
-const Answer = ({ answers = [] }) => {
+const Answer = ({ answers = [],setHistory }) => {
 
     // const inputRef = useRef(null);
     const [value,setValue]=useState([])
     const {state} = useLocation();
-
+    
     const navigate = useNavigate();
     const [msg,setMessage] =useState({type:"",msg:''});
 
@@ -30,12 +31,14 @@ const Answer = ({ answers = [] }) => {
         if(isCorrect){
             console.log("hello")
             setMessage({'msg':"Correct Answer",type:"Success"})
-            navigate('/')
+
         }else{
             setMessage({'msg':"Wrong Answer",type:"Error"})
-
         }
-
+        setHistory(prev=>[...prev,state.question])
+        let que= questions.filter(curr=>curr.id===state.id+1);
+        setValue([])
+        navigate(`/question/${state.id+1}`,{state:que.length>0 ? que[0] :{questions:'End Test'}})
     }
 
     const setAnswerHandler =(e)=>{
@@ -57,7 +60,12 @@ const Answer = ({ answers = [] }) => {
                 return (
                     <React.Fragment key={answer.id}>
                         <div className="form-check form-switch">
-                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" data-id={answer.id} onChange={setAnswerHandler} />
+                            <input className="form-check-input" 
+                                   type="checkbox" 
+                                   id="flexSwitchCheckDefault"
+                                   defaultValue={false} 
+                                   data-id={answer.id} 
+                                   onChange={setAnswerHandler} />
                             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{answer.ans}</label>
                         </div>
                     </React.Fragment>
@@ -79,7 +87,6 @@ const Answer = ({ answers = [] }) => {
                     {msg.msg}
                 </div>
             }
-
         </div>
     )
 }

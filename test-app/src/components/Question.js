@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import Answer from './Answer'
 
-const Question = () => {
+const Question = ({setHistory}) => {
 
     const location=useLocation()
     const { id,question, answers }= location.state
@@ -16,7 +16,7 @@ const Question = () => {
                     {question}
                 </h5>
                 <div className="card-text">
-                    <Answer answers={answers} />
+                    <Answer answers={answers} setHistory={setHistory}/>
                 </div>
             </div>
         </div>

@@ -30,6 +30,8 @@ class App extends React.Component{
     return (
       <div className="App">
         <Navbar />
+
+        {/* Switch */}
          <Routes>
            <Route path="">
                 <Route index element={<Todo />} />

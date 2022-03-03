@@ -17,7 +17,13 @@ const Navbar = () => {
                                 <NavLink className="nav-link" to="/" style={(curr)=>console.log("Home is",curr)}>Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="history">History</NavLink>
+                                <NavLink className="nav-link" to="add">Add</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="complete">Completed</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="counter">Counter</NavLink>
                             </li>
                            
                         </ul>
