@@ -1,11 +1,25 @@
 const express = require('express');
 const loggerObj = require('./Event/event');
-
+const router = require("./router");
 const app = express();
 
 // using express middleware for parsing req data
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+
+// intercept all the routes starting with /users
+// app.use("/users",(req,res,next)=>{
+
+//     console.log(req.baseUrl,req.originalUrl,">>>>>")
+//     next();
+// })
+
+
+app.use((req,res,next)=>{
+
+    console.log(req.protocol,">>>>>")
+    next();
+})
 
 let todos =[
     {
@@ -23,9 +37,9 @@ let todos =[
 ]
 
 // get status 200 O.K.
-app.get('/',(req,res)=>{
+app.get('/userrr',(req,res)=>{
 
-    res.json(todos)
+    return res.redirect('/post/new')
 })
 
 // post return status 201 // created
@@ -50,6 +64,8 @@ app.delete('/:id',(req,res)=>{
 
     // console.log("continue")
 })
+
+app.use("/users",router)
 
 app.listen(4000, ()=>{
     console.log('app started')
