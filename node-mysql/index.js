@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
+const { getQuestions, getAnswers, deleteQuestion } = require('./service');
 const app= express();
 
 
@@ -93,38 +94,55 @@ app.post("/createQue",async (req,res)=>{
 app.get("/getQue",async (req,res)=>{
 
     let {question,answers}  = req.body;
-    connection.query(' select * from question as Question inner join answers as Answer on Question.id=Answer.fk_que', (err,result)=>{
+    
+    const que_result = await getQuestions(connection);
+    const ids=que_result.map(result=>result.id)
+    const result = await getAnswers(connection,ids);
+    
+    console.log(result)
 
-        if(err){
-            console.log(err)
-            return res.status(500).json({err:"Some Error occourd"})
-        }
+    let final_result =  que_result.map(que=>{
+        let answers=[];
 
-        let questions=result.map(data=>{
-            return data.fk_que
+        result.forEach((curr)=>{
+            if(curr.fk_que===que.id){
+                answers.push(curr);
+            }
+
         })
 
-        questions = new Set(questions)
-        questions =[...questions];
-
-        // let final_result=[];
-        // let que={}
-        // for(let i=0;i<result.length;i++){
-        //     for(let j=0;j<questions.length;j++){
-        //         if(question[j]===result[i].fk_que){
-                   
-        //         }
-
-        //     }
-        // }
-
-        res.status(201).json(questions)
+        return {id:que.id,question:que.question,answers}
     })
 
+
+    res.status(201).json(final_result)
+    
 })
 
 
+app.delete("/deleteQue/:id",async (req,res)=>{
+    const id = req.params.id;
+    console.log(id);
+    try {
+        const result= await deleteQuestion(connection,id)
+        return res.status(200).json({"messgae":`Question id ${id} successfully deleted`});
+    } catch (error) {
+        return res.status(error.code || 500).json(error.message || "Some Error Occoured")
+    }   
+})
 
+
+// let obj={
+
+//     id:1,
+//     "question":"dhdhhd ?",
+//     answers:[
+//         {
+//             "id":1,
+//             "answer":"hdhhd"
+//         }
+//     ]
+// }
 
 
 app.listen(4000, ()=>console.log(" app started on port 4000"))
