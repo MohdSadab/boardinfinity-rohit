@@ -1,0 +1,23 @@
+diffrence bewteen mongo db and sql
+
+sql: Schema oriented       mongo: Schemaless
+Mysql: RDBMS               mongo: Document oriented database
+MySql: ACID                mongo: Base
+ACID(Atomicity, consistency, integrity, durability)
+
+sql database: vertically scalable  mongo: horizontally scalable 
+zA9P4IWJI2KvWARW
+
+mongodb+srv://sadabkhan:zA9P4IWJI2KvWARW@cluster0.6q7jt.mongodb.net/apni_dukans
+
+c5Py7fLEkvU5OJzq
+
+mongodb+srv://saadab:c5Py7fLEkvU5OJzq@cluster0.kcejp.mongodb.net/test
+
+
+insert a Document
+
+// db.collection_name.insert(an object with key value)  if collection_name is exist it will insert on that collection if not it will create the collection and insert inside that collection
+db.comments.insert({
+  comment:"I am comment"
+})
