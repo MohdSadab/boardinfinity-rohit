@@ -21,3 +21,30 @@ insert a Document
 db.comments.insert({
   comment:"I am comment"
 })
+
+// return the post having id between 3 and 10
+db.posts.find({
+  $and:[
+    {id:{$gt:3}},
+    {id:{$lt:10}}
+  ]
+})
+
+db.posts.find({
+  $or:[
+    {id:{$eq:3}},
+    {id:{$eq:10}}
+  ]
+})
+
+
+db.posts.find({
+  $and:[
+    {id:{$nin:[1,4,5]}},
+    {id:{$lt:10}}
+  ]
+})
+
+collection in mongodb =======> table in mysql
+documents in mongodb =========> tupple(row) in mysql
+fields in mongodb ============> column in mysql
