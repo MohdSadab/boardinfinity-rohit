@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 const BlogSchema = require("./blogSchema");
 const cors = require("cors");
+const postsSchema = require('./postsSchema');
+const UserSchema = require('./userSchema');
 // using express middleware for parsing req data
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -12,22 +14,26 @@ mongoose.connect('mongodb+srv://saadab:c5Py7fLEkvU5OJzq@cluster0.kcejp.mongodb.n
     console.log("error is",error);
 });
 
-let todos =[
-    {
-        id:1,
-        "title":"Hello"
-    },
-    {
-        id:2,
-        "title":"Hello2"
-    },
-    {
-        id:3,
-        "title":"Hello3"
-    }
-]
 
-// get status 200 O.K.
+
+
+// BlogSchema.where("id").gt(10).where("id").lt(12).limit(2).sort()
+// let todos =[
+//     {
+//         id:1,
+//         "title":"Hello"
+//     },
+//     {
+//         id:2,
+//         "title":"Hello2"
+//     },
+//     {
+//         id:3,
+//         "title":"Hello3"
+//     }
+// ]
+
+// // get status 200 O.K.
 app.get('/',async (req,res)=>{
 
     console.log("hello")
@@ -42,10 +48,11 @@ app.get('/',async (req,res)=>{
 })
 
 // post return status 201 // created
-app.post('/',async (req,res)=>{
+app.post('/post',async (req,res)=>{
 
     //await BlogSchema.create({...req.body});
     try {
+        console.log(req.body)
         const blogSchema = new BlogSchema({...req.body});
         await blogSchema.save()
         res.status(201).json(blogSchema)
